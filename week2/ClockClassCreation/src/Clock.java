@@ -1,7 +1,7 @@
 public class Clock {
 
-    public int hours;
-    public int minutes;
+    private int hours;
+    private int minutes;
 
     public Clock(int hours, int minutes){
         if (hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60) {
