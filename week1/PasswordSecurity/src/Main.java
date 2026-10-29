@@ -30,8 +30,7 @@ boolean isPasswordStrong(String password) {
     int minLowerCount = 1;
     int neededPasswordStrengthScale = minDigitCount + minUpperCount + minLowerCount;
 
-    char[] lst = password.toCharArray();
-    for (Character ch : lst){
+    for (Character ch : password.toCharArray()){
         if (Character.isDigit(ch)){
             passwordStrengthScale = passwordStrengthScale + minDigitCount;
             if (minDigitCount > 0) {minDigitCount--;}
