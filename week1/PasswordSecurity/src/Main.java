@@ -7,8 +7,17 @@ void main() {
 }
 
 /**
- * Method checks if the given string is a strong enough as a password.
+ * Checks the strength of a password.
+ * A password is considered strong if:
+ * <p>
+ * - It contains at least 8 characters
+ * - It contains at least one digit
+ * - It contains at least one uppercase and one lowercase letter
+ *
+ * @param password The password to check
+ * @return True if the password meets the requirements, otherwise false.
  */
+
 boolean isPasswordStrong(String password) {
     int minPasswordLength = 8;
     if (password.length() < minPasswordLength){
