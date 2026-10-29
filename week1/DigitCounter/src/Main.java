@@ -26,18 +26,21 @@ void main() {
 private static Map<Integer, Integer> countDigits(String string){
     Map<Integer, Integer> digitMap = new HashMap<>();
 
-    try {
-        for (String s : string.split("")) {
-            int digit = Integer.parseInt(s);
+    for (String s : string.split("")) {
+        if (s.isEmpty()) continue;
 
-            if (!digitMap.containsKey(digit)) {
-                digitMap.put(digit, 1);
-            } else {
-                digitMap.put(digit, digitMap.get(digit) + 1);
-            }
+        char c = s.charAt(0);
+        if (!Character.isDigit(c)) {
+            continue;
         }
-    } catch (NumberFormatException e) {
-        IO.println("Error: " + e);
+
+        int digit = Integer.parseInt(s);
+
+        if (!digitMap.containsKey(digit)) {
+            digitMap.put(digit, 1);
+        } else {
+            digitMap.put(digit, digitMap.get(digit) + 1);
+        }
     }
 
     return digitMap;
