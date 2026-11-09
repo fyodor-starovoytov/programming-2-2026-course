@@ -1,5 +1,5 @@
 void main() {
-    IO.println("compressString(\"aaaaAbbbccdaaaa\") => " + compressString("aaaaAbbbccdaaaa  "));
+    IO.println("compressString(\"aaaaAbbbccdaaaa\") => " + compressString("aaaaAbbbccdaaaa"));
 }
 
 private static String compressString(String str) {
