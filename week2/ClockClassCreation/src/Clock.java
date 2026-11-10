@@ -2,15 +2,23 @@ public class Clock {
 
     private int hours;
     private int minutes;
+    private boolean isBroken;
+    private static int amountFixedClocks = 0;
 
-    public Clock(int hours, int minutes){
+    public Clock(int hours, int minutes, boolean isBroken){
         if (hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60) {
             this.hours = hours;
             this.minutes = minutes;
+            this.isBroken = isBroken;
         }
         else {
             IO.println("Minutes or hours out of available threshold: " + hours + " " + minutes);
         }
+    }
+
+    public void fix(){
+        this.isBroken = false;
+        amountFixedClocks++;
     }
 
     public void setHours(int hours) {
