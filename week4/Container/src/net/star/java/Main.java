@@ -54,4 +54,43 @@ void main() {
     IO.println(objects.contains("hello")); // true
     IO.println("take: " + objects.take()); // hello
     IO.println(objects.contains("hello")); // false
+
+    LargeContainer<Integer> integerLargeContainer = new LargeContainer<>();
+    integerLargeContainer.add(1);
+    integerLargeContainer.add(2);
+    integerLargeContainer.add(3);
+    integerLargeContainer.print(); // [1, 2, 3]
+
+    IO.print("Sum: ");
+    IO.println(LargeContainer.sumNumbers(integerLargeContainer)); // 6.0
+
+    LargeContainer<Double> doubles = new LargeContainer<>();
+    doubles.add(1.0);
+    doubles.add(2.0);
+    doubles.add(3.0);
+    doubles.print(); // [1.0, 2.0, 3.0]
+
+    IO.print("Sum: ");
+    IO.println(LargeContainer.sumNumbers(doubles)); // 6.0
+
+    LargeContainer<Number> numberLargeContainer = new LargeContainer<>();
+    integerLargeContainer.transferAll(numberLargeContainer);
+    integerLargeContainer.print();
+    doubles.transferAll(numberLargeContainer);
+    numberLargeContainer.print(); // [3, 2, 1, 3.0, 2.0, 1.0]
+
+    IO.print("Sum: ");
+    IO.println(LargeContainer.sumNumbers(numberLargeContainer)); // 12.0
+
+    LargeContainer<String> stringLargeContainer = new LargeContainer<>();
+    stringLargeContainer.add("hello");
+    stringLargeContainer.add("world");
+    stringLargeContainer.print(); // [hello, world]
+    // Strings cannot be summed because they do not inherit from Number.
+
+    LargeContainer<Object> objectLargeContainer = new LargeContainer<>();
+    numberLargeContainer.transferAll(objectLargeContainer);
+    stringLargeContainer.transferAll(objectLargeContainer);
+    objectLargeContainer.print(); // [1.0, 2.0, 3.0, 1, 2, 3, world, hello]
+    // Objects cannot be summed because they do not inherit from Number.
 }

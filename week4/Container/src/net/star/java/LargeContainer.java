@@ -10,6 +10,25 @@ public class LargeContainer<T> {
         this.contents = new Stack<>();
     }
 
+    public static double sumNumbers(LargeContainer<? extends Number> container){
+        double sum = 0;
+
+        Stack<Number> temp = new Stack<>();
+        temp.addAll(container.contents);
+
+        int size = temp.size();
+        if (temp.isEmpty()){
+            return sum;
+        }
+
+        for (int i = 0; i < size; i++){
+            Number element = temp.pop();
+            sum +=  element.doubleValue();
+        }
+
+        return sum;
+    }
+
     public void add(T object){
         contents.push(object);
     }
@@ -37,9 +56,26 @@ public class LargeContainer<T> {
     }
 
     public void print(){
-        for (T element : contents){
-            IO.println(element + ", " + element.getClass().getSimpleName());
+        if (contents.isEmpty()){
+            IO.println("Nothing to print");
         }
+
+        for (T element : contents){
+            IO.println(element);
+        }
+    }
+
+    public void transferAll (LargeContainer<? super T> otherContainer){
+
+        Stack<T> temp = new Stack<>();
+        temp.addAll(this.contents);
+
+        int size = temp.size();
+        for (int i = 0; i < size; i++){
+            otherContainer.add(temp.pop());
+        }
+
+        this.contents.clear();
     }
 }
 
