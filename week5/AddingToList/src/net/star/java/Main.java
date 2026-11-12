@@ -25,6 +25,6 @@ void main() {
         IO.println(list.get(8));
 
         list.remove("Unto1");
-        list.remove("Jarmo2");
+        list.remove("Jaro2");
         IO.println(list);
 }

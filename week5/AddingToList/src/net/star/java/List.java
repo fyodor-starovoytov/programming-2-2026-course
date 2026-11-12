@@ -86,8 +86,14 @@ public class List<T> {
 
     private int getFirstInstance(T element){
         for (int i = 0; i < lst.length; i++) {
-            if (lst[i].equals(element));
-            return i;
+
+            if (lst[i] == null){
+                continue;
+            }
+
+            if (lst[i].equals(element)) {
+                return i;
+            }
         }
         return -1;
     }
