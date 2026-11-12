@@ -31,6 +31,7 @@ public class List<T> {
     }
 
     public T remove(int index){
+
         T toReturn = lst[index];
         T[] newLst = (T[]) new Object[lst.length];
 
@@ -49,13 +50,45 @@ public class List<T> {
         return toReturn;
     }
 
+
+    public boolean remove(T element){
+        int index = getFirstInstance(element);
+        if (index == -1){
+            return false;
+        }
+
+        T[] newLst = (T[]) new Object[lst.length];
+
+        int i0 = 0;
+        for (int i = 0; i < lst.length; i++) {
+            if (i == index){
+                continue;
+            }
+
+            newLst[i0] = lst[i];
+            i0++;
+        }
+
+        this.lst = newLst.clone();
+        size--;
+        return true;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(lst);
     }
 
-    public void copyList(int l){
+    private void copyList(int l){
             T[] newLst = Arrays.copyOf(lst, l * 2);
             this.lst = newLst.clone();
+    }
+
+    private int getFirstInstance(T element){
+        for (int i = 0; i < lst.length; i++) {
+            if (lst[i].equals(element));
+            return i;
+        }
+        return -1;
     }
 }

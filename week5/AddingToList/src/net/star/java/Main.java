@@ -1,6 +1,6 @@
 import net.star.java.List;
 void main() {
-        List<String> list = new List<>(11);
+        List<String> list = new List<>(10);
         list.add("Jaana0");
         list.add("Unto1");
         list.add("Jarmo2");
@@ -12,15 +12,19 @@ void main() {
         list.add("Matti8");
         list.add("Jorma9");
         list.add("Pentti10");
+        list.add("Unto1");
+        list.add("Jarmo2");
 
-        IO.println(list.size());
         IO.println(list);
+        IO.println(list.size());
         IO.println(list.get(10));
 
         IO.println(list.get(8));
         list.remove(8);
-        IO.println(list);
         IO.println(list.size());
         IO.println(list.get(8));
-}
 
+        list.remove("Unto1");
+        list.remove("Jarmo2");
+        IO.println(list);
+}
