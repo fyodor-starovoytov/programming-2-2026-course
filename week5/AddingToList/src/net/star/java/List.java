@@ -1,7 +1,6 @@
 package net.star.java;
 
 import java.util.Arrays;
-import java.util.Iterator;
 
 @SuppressWarnings("unchecked")
 public class List<T> {
@@ -25,6 +24,29 @@ public class List<T> {
 
     public int size(){
         return size;
+    }
+
+    public T get(int index){
+        return lst[index];
+    }
+
+    public T remove(int index){
+        T toReturn = lst[index];
+        T[] newLst = (T[]) new Object[lst.length];
+
+        int i0 = 0;
+        for (int i = 0; i < lst.length; i++) {
+            if (i == index){
+                continue;
+            }
+
+            newLst[i0] = lst[i];
+            i0++;
+        }
+
+        this.lst = newLst.clone();
+        size--;
+        return toReturn;
     }
 
     @Override
