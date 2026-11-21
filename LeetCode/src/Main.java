@@ -1,12 +1,16 @@
 void main(){
 
-    IO.println(isPalindrome(10));
-    IO.println(isPalindrome(12110));
-    IO.println(isPalindrome(11));
-    IO.println(isPalindrome(121));
+   IO.println(isPalindrome(10));
+   IO.println(isPalindrome(12110));
+   IO.println(isPalindrome(11));
+   IO.println(isPalindrome(121));
 
-    IO.println(romanToInt("III"));
-    IO.println(romanToInt("CIV"));
+   IO.println(romanToInt("III"));
+   IO.println(romanToInt("CIV"));
+
+    IO.println(isValid("()"));
+    IO.println(isValid("(("));
+    IO.println(isValid("()[]({})"));
 }
 
 private boolean isPalindrome(int x) {
@@ -43,4 +47,40 @@ public int romanToInt(String s) {
     }
 
     return sum;
+}
+/**
+ * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * */
+public boolean isValid(String s) {
+    if ((s.length() % 2) != 0){
+        return false;
+    }
+
+    boolean isOpenBracket;
+    Stack<Character> brackets = new Stack<>();
+    for (char c : s.toCharArray()) {
+
+        isOpenBracket = switch (c) {
+            case ')', '}', ']' -> false;
+            default -> true;
+        };
+
+        if (isOpenBracket) {
+            brackets.push(c);
+            continue;
+        }
+
+        if (brackets.isEmpty()) {
+            return false;
+        }
+
+        if (c == ')') c = '(';
+        if (c == ']') c = '[';
+        if (c == '}') c = '{';
+        if (brackets.pop() != c){
+            return false;
+        }
+    }
+
+    return brackets.isEmpty();
 }
