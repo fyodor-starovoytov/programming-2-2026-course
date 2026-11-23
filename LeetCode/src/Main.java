@@ -11,6 +11,10 @@ void main(){
     IO.println(isValid("()"));
     IO.println(isValid("(("));
     IO.println(isValid("()[]({})"));
+
+    LinkedList<Integer> sortedLinkedList0 = new LinkedList<>(List.of(1, 2, 6));
+    LinkedList<Integer> sortedLinkedList1 = new LinkedList<>(List.of(2, 5, 8));
+    IO.println(mergeTwoLists(sortedLinkedList0, sortedLinkedList1));
 }
 
 private boolean isPalindrome(int x) {
@@ -48,6 +52,7 @@ public int romanToInt(String s) {
 
     return sum;
 }
+
 /**
  * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
  * */
@@ -83,4 +88,16 @@ public boolean isValid(String s) {
     }
 
     return brackets.isEmpty();
+}
+
+/**
+ * You are given the heads of two sorted linked lists list1 and list2.
+ *
+ * Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+ * */
+public LinkedList<Integer> mergeTwoLists(LinkedList<Integer> list1, LinkedList<Integer> list2) {
+    for (int i = 0; i < list1.size() + list1.size(); i++) {
+
+    }
+    
 }
